@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DEEPFRIEDPHARZ — Graphic Design Merch</title>
+    <meta name="description" content="DEEPFRIEDPHARZ — original graphic design merchandise: tees, stickers, posters, and more." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <div class="brand">
+          <a href="#" aria-label="DEEPFRIEDPHARZ home">
+            <span class="brand-logo">DFP</span>
+            <span class="brand-name">DEEPFRIEDPHARZ</span>
+          </a>
+        </div>
+        <nav class="nav" role="navigation" aria-label="Primary">
+          <a href="#shop" class="nav-link" aria-current="page">Shop</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <button id="cart-button" class="cart-button" aria-label="Open cart">Cart <span id="cart-count" class="cart-count">0</span></button>
+      </div>
+    </header>
+
+    <div class="promo-bar" role="region" aria-label="Promotions">
+      <div class="container promo-inner">
+        <span class="promo-badge" aria-hidden="true">New</span>
+        <span class="promo-text">Deepfried Collection Vol. 01 — Limited run prints and stickers</span>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero" role="region" aria-label="Hero">
+        <div class="container hero-inner">
+          <h1 class="headline">Graphic Heat, Deep-Fried.</h1>
+          <p class="subhead">Original designs turned into merch: tees, stickers, posters, hoodies. Built for fans of bold art and loud aesthetics.</p>
+          <div class="hero-actions">
+            <a href="#shop" class="btn primary">Shop Designs</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="shop" class="shop" role="main">
+        <div class="container">
+          <h2 class="section-title">Shop Designs</h2>
+          <div id="product-grid" class="product-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="about" class="about">
+        <div class="container">
+          <h2 class="section-title">About</h2>
+          <p>DEEPFRIEDPHARZ is a graphic design merch label blending internet art, retro vibes, and saturated color. We ship posters, stickers, tees, and hoodies—made to stand out.</p>
+          <p class="fine">Inspired by bold drop culture and vivid aesthetics. This site is independent and offers original artwork merch.</p>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="container">
+          <h2 class="section-title">Contact</h2>
+          <p>Questions or bulk orders? Email <a href="mailto:orders@deepfriedpharz.com">orders@deepfriedpharz.com</a>.</p>
+        </div>
+      </section>
+    </main>
+
+    <aside id="cart-panel" class="cart-panel" aria-hidden="true" aria-labelledby="cart-button">
+      <div class="cart-header">
+        <h3>Cart</h3>
+        <button id="cart-close" class="icon-button" aria-label="Close cart">✕</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-summary">
+        <div class="row">
+          <span>Subtotal</span>
+          <strong id="cart-subtotal">$0.00</strong>
+        </div>
+        <button id="checkout" class="btn primary full">Checkout</button>
+      </div>
+    </aside>
+
+    <!-- Accessible Product Quick View Modal -->
+    <div id="product-modal" class="modal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="modal" aria-hidden="true"></div>
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+        <div class="modal-header">
+          <h3 id="modal-title">Product</h3>
+          <button id="modal-close" class="icon-button" aria-label="Close dialog">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-media"><img id="modal-image" src="" alt="" /></div>
+          <div class="modal-info">
+            <p id="modal-desc" class="modal-desc">Original design print with saturated colors and bold composition.</p>
+            <div class="modal-price"><strong id="modal-price">$0.00</strong></div>
+            <div class="modal-actions">
+              <input id="modal-qty" type="number" min="1" value="1" class="qty-input" aria-label="Quantity" />
+              <button id="modal-add" class="btn primary">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-inner">
+        <small>© <span id="year"></span> DEEPFRIEDPHARZ. All rights reserved.</small>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
