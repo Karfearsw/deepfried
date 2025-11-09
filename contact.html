@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — DEEPFRIEDPHARZ Luxury Support</title>
+  <meta name="description" content="Get in touch with DEEPFRIEDPHARZ for inquiries, support, or collaborations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="luxury.css" />
+  <script src="luxury.js" defer></script>
+</head>
+<body class="luxury-theme">
+  <!-- Luxury Moving Banner -->
+  <div class="luxury-banner" role="region" aria-label="Promotion">
+    <div class="banner-content">
+      <span class="banner-text">Spend $250 Get Free Shipping</span>
+      <span class="banner-text">Spend $250 Get Free Shipping</span>
+      <span class="banner-text">Spend $250 Get Free Shipping</span>
+      <span class="banner-text">Spend $250 Get Free Shipping</span>
+    </div>
+  </div>
+
+  <!-- Luxury Navigation -->
+  <header class="luxury-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="home.html" aria-label="DEEPFRIEDPHARZ home" class="brand-link">
+          <span class="brand-logo">DFP</span>
+          <span class="brand-name">DEEPFRIEDPHARZ</span>
+        </a>
+      </div>
+      <nav class="luxury-nav" role="navigation" aria-label="Primary">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+      <button id="cart-button" class="luxury-cart-button" aria-label="Open cart">
+        <span class="cart-icon">⚡</span>
+        Cart <span id="cart-count" class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Contact Hero Section -->
+    <section class="contact-hero" role="region" aria-label="Contact Hero">
+      <div class="hero-background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+      </div>
+      <div class="container">
+        <div class="contact-hero-content">
+          <h1 class="contact-hero-title">Get In Touch</h1>
+          <p class="contact-hero-subtitle">We're here to help with orders, collaborations, and everything in between.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" role="region" aria-label="Contact Form">
+      <div class="container">
+        <div class="contact-layout">
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <h2 class="info-title">Contact Information</h2>
+            
+            <div class="info-item">
+              <h3 class="info-label">Email</h3>
+              <a href="mailto:support@deepfriedpharz.com" class="info-link">support@deepfriedpharz.com</a>
+            </div>
+            
+            <div class="info-item">
+              <h3 class="info-label">Response Time</h3>
+              <p class="info-text">Within 24 hours</p>
+            </div>
+            
+            <div class="info-item">
+              <h3 class="info-label">Business Hours</h3>
+              <p class="info-text">Mon-Fri: 9AM-6PM EST</p>
+              <p class="info-text">Weekends: Limited support</p>
+            </div>
+            
+            <div class="info-item">
+              <h3 class="info-label">Social</h3>
+              <div class="social-links">
+                <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
+                <a href="#" class="social-link" aria-label="Twitter">Twitter</a>
+                <a href="#" class="social-link" aria-label="Discord">Discord</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Contact Form -->
+          <div class="contact-form-container">
+            <form class="luxury-contact-form" id="contact-form">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Full Name *</label>
+                <input type="text" id="contact-name" name="name" class="form-input" required placeholder="Enter your full name" />
+              </div>
+              
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email Address *</label>
+                <input type="email" id="contact-email" name="email" class="form-input" required placeholder="your@email.com" />
+              </div>
+              
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Subject *</label>
+                <select id="contact-subject" name="subject" class="form-select" required>
+                  <option value="">Select a topic</option>
+                  <option value="order">Order Inquiry</option>
+                  <option value="shipping">Shipping Question</option>
+                  <option value="returns">Returns & Exchanges</option>
+                  <option value="collaboration">Collaboration Request</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Message *</label>
+                <textarea id="contact-message" name="message" class="form-textarea" rows="6" required placeholder="Tell us how we can help..."></textarea>
+              </div>
+              
+              <div class="form-actions">
+                <button type="submit" class="luxury-btn primary">
+                  <span>Send Message</span>
+                  <span class="btn-icon">→</span>
+                </button>
+                <button type="reset" class="luxury-btn secondary">
+                  <span>Clear Form</span>
+                </button>
+              </div>
+              
+              <div class="form-status" id="form-status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" role="region" aria-label="Frequently Asked Questions">
+      <div class="container">
+        <div class="faq-header">
+          <h2 class="section-title-medium">Frequently Asked Questions</h2>
+          <p class="faq-lead">Quick answers to common questions about orders, shipping, and more.</p>
+        </div>
+        
+        <div class="faq-list" id="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+              <span class="faq-question-text">How long does shipping take?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div id="faq-answer-1" class="faq-answer" hidden>
+              <p class="faq-answer-text">Standard shipping takes 5-7 business days. Express options are available at checkout for faster delivery.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+              <span class="faq-question-text">Do you ship internationally?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div id="faq-answer-2" class="faq-answer" hidden>
+              <p class="faq-answer-text">Yes, we ship worldwide. International shipping typically takes 10-14 business days depending on your location.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+              <span class="faq-question-text">What's your return policy?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div id="faq-answer-3" class="faq-answer" hidden>
+              <p class="faq-answer-text">We accept returns within 14 days of delivery. Items must be unworn and in original condition. Limited edition items are final sale.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+              <span class="faq-question-text">How do I know my size?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div id="faq-answer-4" class="faq-answer" hidden>
+              <p class="faq-answer-text">Check our size guide on each product page. Our pieces run true to size with a slightly oversized streetwear fit.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+              <span class="faq-question-text">When do you release new designs?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div id="faq-answer-5" class="faq-answer" hidden>
+              <p class="faq-answer-text">New drops happen monthly. Join our newsletter for early access and behind-the-scenes content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Newsletter Popup -->
+  <div id="newsletter-popup" class="newsletter-popup" aria-hidden="true" aria-labelledby="newsletter-title">
+    <div class="newsletter-overlay"></div>
+    <div class="newsletter-content">
+      <button class="newsletter-close" aria-label="Close newsletter">×</button>
+      <div class="newsletter-layout">
+        <div class="newsletter-image">
+          <img src="https://trae-api-us.mchost.guru/api/ide/v1/text_to_image?prompt=luxury%20streetwear%20fashion%20photography%2C%20premium%20clothing%20layout%2C%20futuristic%20aesthetic%2C%20high-end%20design%2C%20saturated%20colors%2C%20professional%20lighting&image_size=square_hd" alt="Exclusive Designs" />
+        </div>
+        <div class="newsletter-form-section">
+          <div class="newsletter-header">
+            <h2 id="newsletter-title" class="newsletter-title">Join The Exclusive</h2>
+            <p class="newsletter-subtitle">Be first to access limited drops and exclusive collections</p>
+          </div>
+          <form class="newsletter-form" id="newsletter-form">
+            <div class="form-group">
+              <label for="newsletter-email" class="form-label">Email Address</label>
+              <input type="email" id="newsletter-email" class="form-input" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="newsletter-phone" class="form-label">Phone (Optional)</label>
+              <input type="tel" id="newsletter-phone" class="form-input" placeholder="+1 (555) 123-4567" />
+            </div>
+            <button type="submit" class="luxury-btn primary full">
+              <span>Get Exclusive Access</span>
+              <span class="btn-icon">→</span>
+            </button>
+            <p class="form-disclaimer">No spam, ever. Unsubscribe anytime.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Panel -->
+  <aside id="cart-panel" class="luxury-cart-panel" aria-hidden="true" aria-labelledby="cart-button">
+    <div class="cart-header">
+      <h3>Shopping Cart</h3>
+      <button id="cart-close" class="luxury-icon-button" aria-label="Close cart">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <strong id="cart-subtotal">$0.00</strong>
+      </div>
+      <button id="checkout" class="luxury-btn primary full">Secure Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Luxury Footer -->
+  <footer class="luxury-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="brand-logo">DFP</span>
+          <span class="brand-name">DEEPFRIEDPHARZ</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="shop.html">Shop</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-legal">
+        <small>© <span id="year"></span> DEEPFRIEDPHARZ. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="luxury.js"></script>
+  <script>
+    // Contact page specific functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // FAQ accordion functionality
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+          const answer = document.getElementById(this.getAttribute('aria-controls'));
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          
+          // Toggle current FAQ
+          this.setAttribute('aria-expanded', !isExpanded);
+          answer.hidden = isExpanded;
+          this.querySelector('.faq-icon').textContent = isExpanded ? '+' : '−';
+          
+          // Close other FAQs
+          faqQuestions.forEach(otherQuestion => {
+            if (otherQuestion !== this) {
+              const otherAnswer = document.getElementById(otherQuestion.getAttribute('aria-controls'));
+              otherQuestion.setAttribute('aria-expanded', 'false');
+              otherAnswer.hidden = true;
+              otherQuestion.querySelector('.faq-icon').textContent = '+';
+            }
+          });
+        });
+      });
+      
+      // Contact form handling
+      const contactForm = document.getElementById('contact-form');
+      const formStatus = document.getElementById('form-status');
+      
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Simulate form submission
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<span>Sending...</span>';
+        submitBtn.disabled = true;
+        
+        // Simulate API call
+        setTimeout(() => {
+          formStatus.innerHTML = '<div class="success-message">Message sent successfully! We\'ll get back to you within 24 hours.</div>';
+          formStatus.setAttribute('aria-live', 'polite');
+          this.reset();
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+          
+          // Track contact form submission
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'contact_form_submit', {
+              'event_category': 'engagement',
+              'event_label': 'contact_form'
+            });
+          }
+          
+          // Clear success message after 5 seconds
+          setTimeout(() => {
+            formStatus.innerHTML = '';
+          }, 5000);
+        }, 1500);
+      });
+    });
+  </script>
+</body>
+</html>

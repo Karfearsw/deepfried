@@ -68,8 +68,14 @@ function init() {
     }
   });
   renderYear();
-  renderProducts();
-  renderCart();
+  // Only render products if product grid exists (shop page)
+  if (document.getElementById("product-grid")) {
+    renderProducts();
+  }
+  // Only render cart if cart elements exist
+  if (document.getElementById("cart-items") || document.getElementById("cart-subtotal") || document.getElementById("cart-count")) {
+    renderCart();
+  }
   bindUI();
 }
 
@@ -79,15 +85,23 @@ function bindUI() {
   const cartClose = document.getElementById("cart-close");
   const checkout = document.getElementById("checkout");
 
-  cartBtn.addEventListener("click", () => {
-    cartPanel.classList.add("open");
-    cartPanel.setAttribute("aria-hidden", "false");
-  });
-  cartClose.addEventListener("click", () => {
-    cartPanel.classList.remove("open");
-    cartPanel.setAttribute("aria-hidden", "true");
-  });
-  checkout.addEventListener("click", onCheckout);
+  if (cartBtn && cartPanel) {
+    cartBtn.addEventListener("click", () => {
+      cartPanel.classList.add("open");
+      cartPanel.setAttribute("aria-hidden", "false");
+    });
+  }
+  
+  if (cartClose && cartPanel) {
+    cartClose.addEventListener("click", () => {
+      cartPanel.classList.remove("open");
+      cartPanel.setAttribute("aria-hidden", "true");
+    });
+  }
+  
+  if (checkout) {
+    checkout.addEventListener("click", onCheckout);
+  }
 }
 
 function renderYear() {
@@ -96,9 +110,24 @@ function renderYear() {
 }
 
 function renderProducts() {
-  const grid = document.getElementById("product-grid");
-  grid.innerHTML = "";
-  state.products.forEach((p) => {
+  try {
+    const grid = document.getElementById("product-grid");
+    console.log('renderProducts: grid element:', grid);
+    
+    if (!grid) {
+      console.log('renderProducts: no grid found, returning');
+      return; // Only render if product grid exists (shop page)
+    }
+    
+    // Safety check - ensure grid is valid before manipulating
+    if (!grid || typeof grid.innerHTML === 'undefined') {
+      console.log('renderProducts: grid invalid');
+      return;
+    }
+    
+    console.log('renderProducts: clearing grid innerHTML');
+    grid.innerHTML = "";
+    state.products.forEach((p) => {
     const card = document.createElement("div");
     card.className = "card";
 
@@ -200,6 +229,9 @@ function renderProducts() {
     card.appendChild(body);
     grid.appendChild(card);
   });
+  } catch (e) {
+    console.warn('renderProducts error:', e);
+  }
 }
 
 function addToCart(productId, qty = 1, variantKey) {
@@ -242,7 +274,11 @@ function renderCart() {
   const list = document.getElementById("cart-items");
   const subtotalEl = document.getElementById("cart-subtotal");
   const countEl = document.getElementById("cart-count");
-  list.innerHTML = "";
+  if (!list || !subtotalEl || !countEl) return; // Only render if cart elements exist
+  
+  // Clear existing cart items
+  list.innerHTML = '';
+  
   state.cart.forEach((c) => {
     const p = state.products.find((x) => x.id === c.productId);
     if (!p) return;
@@ -322,35 +358,43 @@ let modalState = { open: false, productId: null, lastFocus: null };
 function openProductModal(productId) {
   const p = state.products.find((x) => x.id === productId);
   if (!p) return;
+  
+  const modal = document.getElementById("product-modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalImage = document.getElementById("modal-image");
+  const modalPrice = document.getElementById("modal-price");
+  const modalQty = document.getElementById("modal-qty");
+  const modalAdd = document.getElementById("modal-add");
+  const modalClose = document.getElementById("modal-close");
+  
+  // Only proceed if all modal elements exist (shop page)
+  if (!modal || !modalTitle || !modalImage || !modalPrice || !modalQty || !modalAdd || !modalClose) return;
+  
   modalState.open = true;
   modalState.productId = productId;
   modalState.lastFocus = document.activeElement;
-  const modal = document.getElementById("product-modal");
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
-  document.getElementById("modal-title").textContent = p.name;
-  const img = document.getElementById("modal-image");
-  img.src = p.image;
-  img.alt = p.name;
+  modalTitle.textContent = p.name;
+  modalImage.src = p.image;
+  modalImage.alt = p.name;
   // Build modal variant selector
   buildModalVariants(p);
-  document.getElementById("modal-price").textContent = fmt(getVariantPrice(getSelectedVariant(p.id)));
-  const qty = document.getElementById("modal-qty");
-  qty.value = "1";
-  const add = document.getElementById("modal-add");
-  add.onclick = () => addToCart(p.id, parseInt(qty.value, 10) || 1, getSelectedVariant(p.id));
-  const closeBtn = document.getElementById("modal-close");
-  closeBtn.onclick = closeProductModal;
+  modalPrice.textContent = fmt(getVariantPrice(getSelectedVariant(p.id)));
+  modalQty.value = "1";
+  modalAdd.onclick = () => addToCart(p.id, parseInt(modalQty.value, 10) || 1, getSelectedVariant(p.id));
+  modalClose.onclick = closeProductModal;
   // Backdrop click
   const backdrop = modal.querySelector(".modal-backdrop");
-  backdrop.onclick = closeProductModal;
+  if (backdrop) backdrop.onclick = closeProductModal;
   // Trap focus
-  setTimeout(() => closeBtn.focus(), 0);
+  setTimeout(() => modalClose.focus(), 0);
   document.addEventListener("keydown", handleModalKeydown);
 }
 
 function closeProductModal() {
   const modal = document.getElementById("product-modal");
+  if (!modal) return; // Only proceed if modal exists
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
   modalState.open = false;
@@ -387,14 +431,19 @@ function persistSelection() {
 
 function buildModalVariants(p) {
   const info = document.querySelector(".modal-info");
+  const modalPrice = document.getElementById("modal-price");
   let container = document.getElementById("modal-variants");
+  
+  // Only proceed if modal elements exist
+  if (!info || !modalPrice) return;
+  
   if (!container) {
     container = document.createElement("div");
     container.id = "modal-variants";
     container.className = "variant-group";
     container.setAttribute("role", "radiogroup");
     container.setAttribute("aria-label", "Select variant");
-    info.insertBefore(container, document.getElementById("modal-price").parentElement);
+    info.insertBefore(container, modalPrice.parentElement);
   }
   container.innerHTML = "";
   const currentVariant = getSelectedVariant(p.id);
@@ -432,6 +481,7 @@ function handleModalKeydown(e) {
   }
   if (e.key === "Tab") {
     const modal = document.getElementById("product-modal");
+    if (!modal) return; // Only proceed if modal exists
     const focusables = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
     const list = Array.from(focusables).filter(el => !el.hasAttribute("disabled"));
     if (!list.length) return;

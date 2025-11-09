@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop — DEEPFRIEDPHARZ Luxury Collection</title>
+  <meta name="description" content="Explore our premium collection of exclusive graphic design merchandise. Limited edition tees, stickers, posters, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="luxury.css" />
+  <script src="luxury.js" defer></script>
+</head>
+<body class="luxury-theme">
+  <!-- Luxury Moving Banner -->
+  <div class="luxury-banner" role="region" aria-label="Promotion">
+    <div class="banner-content">
+      <span class="banner-text">Spend $250 Get Free Shipping</span>
+      <span class="banner-text">Spend $250 Get Free Shipping</span>
+      <span class="banner-text">Spend $250 Get Free Shipping</span>
+      <span class="banner-text">Spend $250 Get Free Shipping</span>
+    </div>
+  </div>
+
+  <!-- Luxury Navigation -->
+  <header class="luxury-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="home.html" aria-label="DEEPFRIEDPHARZ home" class="brand-link">
+          <span class="brand-logo">DFP</span>
+          <span class="brand-name">DEEPFRIEDPHARZ</span>
+        </a>
+      </div>
+      <nav class="luxury-nav" role="navigation" aria-label="Primary">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link active">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <button id="cart-button" class="luxury-cart-button" aria-label="Open cart">
+        <span class="cart-icon">⚡</span>
+        Cart <span id="cart-count" class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Shop Hero Section -->
+    <section class="shop-hero" role="region" aria-label="Shop Collection">
+      <div class="hero-background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+      </div>
+      <div class="container">
+        <div class="shop-hero-content">
+          <h1 class="luxury-section-title">Exclusive Collection</h1>
+          <p class="shop-hero-subtitle">Curated designs for the discerning collector. Each piece represents our commitment to premium quality and artistic integrity.</p>
+          <div class="shop-stats">
+            <div class="stat-item">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Exclusive Designs</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">Premium</span>
+              <span class="stat-label">Quality Materials</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">Limited</span>
+              <span class="stat-label">Edition Drops</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop Filters -->
+    <section class="shop-filters" role="region" aria-label="Product Filters">
+      <div class="container">
+        <div class="filters-header">
+          <h2 class="filters-title">Browse Collection</h2>
+          <div class="filters-controls">
+            <button class="filter-btn active" data-filter="all">All Items</button>
+            <button class="filter-btn" data-filter="sticker">Stickers</button>
+            <button class="filter-btn" data-filter="poster">Posters</button>
+            <button class="filter-btn" data-filter="tshirt">T-Shirts</button>
+            <button class="filter-btn" data-filter="hoodie">Hoodies</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="shop-grid-section" role="region" aria-label="Products">
+      <div class="container">
+        <div id="product-grid" class="luxury-product-grid" aria-live="polite">
+          <!-- Products will be loaded here -->
+        </div>
+        <div class="load-more-container">
+          <button id="load-more" class="luxury-btn secondary">
+            <span>Load More Designs</span>
+            <span class="btn-icon">↓</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Newsletter Popup -->
+  <div id="newsletter-popup" class="newsletter-popup" aria-hidden="true" aria-labelledby="newsletter-title">
+    <div class="newsletter-overlay"></div>
+    <div class="newsletter-content">
+      <button class="newsletter-close" aria-label="Close newsletter">×</button>
+      <div class="newsletter-layout">
+        <div class="newsletter-image">
+          <img src="https://trae-api-us.mchost.guru/api/ide/v1/text_to_image?prompt=luxury%20streetwear%20fashion%20photography%2C%20premium%20clothing%20layout%2C%20futuristic%20aesthetic%2C%20high-end%20design%2C%20saturated%20colors%2C%20professional%20lighting&image_size=square_hd" alt="Exclusive Designs" />
+        </div>
+        <div class="newsletter-form-section">
+          <div class="newsletter-header">
+            <h2 id="newsletter-title" class="newsletter-title">Join The Exclusive</h2>
+            <p class="newsletter-subtitle">Be first to access limited drops and exclusive collections</p>
+          </div>
+          <form class="newsletter-form" id="newsletter-form">
+            <div class="form-group">
+              <label for="newsletter-email" class="form-label">Email Address</label>
+              <input type="email" id="newsletter-email" class="form-input" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="newsletter-phone" class="form-label">Phone (Optional)</label>
+              <input type="tel" id="newsletter-phone" class="form-input" placeholder="+1 (555) 123-4567" />
+            </div>
+            <button type="submit" class="luxury-btn primary full">
+              <span>Get Exclusive Access</span>
+              <span class="btn-icon">→</span>
+            </button>
+            <p class="form-disclaimer">No spam, ever. Unsubscribe anytime.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Panel -->
+  <aside id="cart-panel" class="luxury-cart-panel" aria-hidden="true" aria-labelledby="cart-button">
+    <div class="cart-header">
+      <h3>Shopping Cart</h3>
+      <button id="cart-close" class="luxury-icon-button" aria-label="Close cart">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <strong id="cart-subtotal">$0.00</strong>
+      </div>
+      <button id="checkout" class="luxury-btn primary full">Secure Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Product Quick View Modal -->
+  <div id="product-modal" class="luxury-modal" aria-hidden="true">
+    <div class="luxury-modal-backdrop" data-close="modal" aria-hidden="true"></div>
+    <div class="luxury-modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div class="luxury-modal-header">
+        <h3 id="modal-title">Product</h3>
+        <button id="modal-close" class="luxury-icon-button" aria-label="Close dialog">✕</button>
+      </div>
+      <div class="luxury-modal-body">
+        <div class="luxury-modal-media">
+          <img id="modal-image" src="" alt="" />
+        </div>
+        <div class="luxury-modal-info">
+          <p id="modal-desc" class="luxury-modal-desc">Original design print with saturated colors and bold composition.</p>
+          <div class="luxury-modal-price">
+            <strong id="modal-price">$0.00</strong>
+          </div>
+          <div class="luxury-modal-actions">
+            <input id="modal-qty" type="number" min="1" value="1" class="luxury-qty-input" aria-label="Quantity" />
+            <button id="modal-add" class="luxury-btn primary">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Luxury Footer -->
+  <footer class="luxury-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="brand-logo">DFP</span>
+          <span class="brand-name">DEEPFRIEDPHARZ</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="shop.html">Shop</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-legal">
+        <small>© <span id="year"></span> DEEPFRIEDPHARZ. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="luxury.js"></script>
+</body>
+</html>
